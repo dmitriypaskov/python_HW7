@@ -6,7 +6,7 @@ arr_clone = []
 for i in arr:
     if i != 0:
         arr_clone.append(i)
-    else:
 for i in range(arr.count(0)):
     arr_clone.append(0)
+print(arr_clone)
 
