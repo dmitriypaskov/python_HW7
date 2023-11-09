@@ -2,8 +2,13 @@
 Ваше завдання — змінити список так, щоб усі нулі опинилися наприкінці списку.
 Порядок ненульових чисел має зберегтися!'''
 arr = [9, 0, 7, 31, 0, 45, 0, 45, 0, 45, 0, 0, 96, 0]
-arr_clone = arr.copy()
+arr_clone = []
+count_zero = 0
 for i in arr:
-    if i == 0:
+    if i != 0:
         arr_clone.append(i)
-        arr_clone.remove(i)
+    else:
+        count_zero += 1
+for i in range(count_zero):
+    arr_clone.append(0)
+

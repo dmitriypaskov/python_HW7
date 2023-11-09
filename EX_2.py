@@ -4,10 +4,9 @@
 Для порожнього масиву результат завжди 0. """
 arr = [0, 1, 7, 2, 4, 8]
 sumy = 0
-res = 0
-if len(arr) > 0:
-    for i, el in enumerate(arr):
+if len(arr):
+    for i in range(len(arr)):
         if i % 2 == 0:
-            sumy += el
-    res = sumy * arr[-1]
-print(res)
+            sumy += arr[i]
+    sumy *= arr[-1]
+print(sumy)
