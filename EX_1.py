@@ -3,12 +3,10 @@
 Порядок ненульових чисел має зберегтися!'''
 arr = [9, 0, 7, 31, 0, 45, 0, 45, 0, 45, 0, 0, 96, 0]
 arr_clone = []
-count_zero = 0
 for i in arr:
     if i != 0:
         arr_clone.append(i)
     else:
-        count_zero += 1
-for i in range(count_zero):
+for i in range(arr.count(0)):
     arr_clone.append(0)
 
