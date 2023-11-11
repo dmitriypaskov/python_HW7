@@ -10,43 +10,30 @@ import keyword
 При цьому ім'я змінної може складатися тільки з одного нижнього підкреслення "_".
 Список зареєстрованих слів можна взяти із keyword.kwlist.
 У результаті перевірки на друк виводиться або True, якщо таке ім'я змінної допустимо, або False - якщо ні.
-Приклади імен змінних та результат перевірки (=> на друк виводити не потрібно :))
-_ => True
-x => True
-get_value => True
-get value => False
-get!value => False
-some_super_puper_value => True
-Get_value => False
-get_Value => False
-getValue => False
-3m => False
-m3 => True
-НЕ МОЖНА ВИКОРИСТОВУВАТИ RegEx."""
-#value = input("Please enter the name of the variable to check :\n")
-value = "__ifр"
+Приклади імен змінних та результат перевірки (=> на друк виводити не потрібно :)) """
+value = input("Please enter the name of the variable to check :\n")
 result = True
-#result = False
-if value.islower():
-    result = True
-else:
+if not value.islower() and value != "_":
+    print("Не всі символи в нижньому регістрі")
     result = False
-if value[0].isnumeric():
+if value[0].isnumeric() or value.isnumeric():
+    print("Починається з цифри і не весь з цифр")
     result = False
-else:
-    result = True
-if not value.isnumeric():
-    print("Не складається лише з цифр")
-if value not in keyword.kwlist:
-    print("Не зарезервоване слово")
+if value in keyword.kwlist:
+    print("Зарезервоване слово")
+    result = False
 for i, el in enumerate(value):
     if el == " ":
+        result = False
         break
-    elif value[i] == "_" and value[i+1] == "_":
+    elif len(value) > 1 and value[-i] == "_" and value[-i-1] == "_":
+        result = False
         break
     elif el == "_":
         continue
-    elif el not in string.punctuation:
-        print("Не є спецсимволом" + el)
+    elif el in string.punctuation:
+        result = False
+        break
 print(result)
+
 
