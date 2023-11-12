@@ -7,25 +7,27 @@ import keyword
     -містити великі літери, пропуск і знаки пунктуації (взяти можна тут string.punctuation)
      окрім нижнього підкреслення "_".
     -бути жодним із зареєстрованих слів."""
-value = input("Please enter the name of the variable to check :\n")
+#value = input("Please enter the name of the variable to check :\n")
+value = "_"
 result = True
 if not value.islower() and value != "_":
     result = False
-if value[0].isnumeric() or value.isnumeric():
+elif value[0].isnumeric() or value.isnumeric():
     result = False
-if value in keyword.kwlist:
+elif value in keyword.kwlist:
     result = False
-for i, el in enumerate(value):
-    if el == " ":
-        result = False
-        break
-    elif len(value) > 1 and value[-i] == "_" and value[-i-1] == "_":
-        result = False
-        break
-    elif el == "_":
-        continue
-    elif el in string.punctuation:
-        result = False
-        break
+else:
+    for i, el in enumerate(value):
+        if el == " ":
+            result = False
+            break
+        elif len(value) > 1 and value[-i] == "_" and value[-i-1] == "_":
+            result = False
+            break
+        elif el == "_":
+            continue
+        elif el in string.punctuation:
+            result = False
+            break
 
 
