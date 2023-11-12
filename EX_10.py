@@ -7,8 +7,7 @@ import keyword
     -містити великі літери, пропуск і знаки пунктуації (взяти можна тут string.punctuation)
      окрім нижнього підкреслення "_".
     -бути жодним із зареєстрованих слів."""
-#value = input("Please enter the name of the variable to check :\n")
-value = "_"
+value = input("Please enter the name of the variable to check :\n")
 result = True
 if not value.islower() and value != "_":
     result = False
