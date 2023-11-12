@@ -6,16 +6,15 @@ import string
 кожне слово починається з великої літери.
 якщо довжина хештегу більше 140 символів - обрізати підсумковий рядок до 140 символів."""
 hashtag_billet = input("Please enter hashtag :\n")
-hashtag = ""
 max_len_hashtag = 140
-count = 0
+hashtag = ""
+count_len = 0
 for i in hashtag_billet.title():
     if i in string.punctuation or i == " ":
         continue
-    elif count == max_len_hashtag:
+    elif count_len == max_len_hashtag:
         break
     else:
         hashtag += i
-        count += 1
-print(hashtag)
+        count_len += 1
 

@@ -14,13 +14,10 @@ import keyword
 value = input("Please enter the name of the variable to check :\n")
 result = True
 if not value.islower() and value != "_":
-    print("Не всі символи в нижньому регістрі")
     result = False
 if value[0].isnumeric() or value.isnumeric():
-    print("Починається з цифри і не весь з цифр")
     result = False
 if value in keyword.kwlist:
-    print("Зарезервоване слово")
     result = False
 for i, el in enumerate(value):
     if el == " ":
@@ -34,6 +31,5 @@ for i, el in enumerate(value):
     elif el in string.punctuation:
         result = False
         break
-print(result)
 
 
