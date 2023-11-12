@@ -28,6 +28,5 @@ else:
         elif el in string.punctuation:
             result = False
             break
-print(result)
 
 
