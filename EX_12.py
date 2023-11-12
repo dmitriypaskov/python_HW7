@@ -9,12 +9,14 @@ hashtag_billet = input("Please enter hashtag :\n")
 max_len_hashtag = 140
 hashtag_arr = []
 count_len = 0
-for i in hashtag_billet.title():
+for i in hashtag_billet:
     if i in string.punctuation or i == " ":
+        hashtag_arr.append(" ")
         continue
     elif count_len == max_len_hashtag:
         break
     else:
         hashtag_arr.append(i)
         count_len += 1
-hashtag = "".join(hashtag_arr)
+hashtag = "".join("".join(hashtag_arr).title().split())
+
