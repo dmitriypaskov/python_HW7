@@ -7,7 +7,7 @@ import string
 якщо довжина хештегу більше 140 символів - обрізати підсумковий рядок до 140 символів."""
 hashtag_billet = input("Please enter hashtag :\n")
 max_len_hashtag = 140
-hashtag = ""
+hashtag_arr = []
 count_len = 0
 for i in hashtag_billet.title():
     if i in string.punctuation or i == " ":
@@ -15,6 +15,6 @@ for i in hashtag_billet.title():
     elif count_len == max_len_hashtag:
         break
     else:
-        hashtag += i
+        hashtag_arr.append(i)
         count_len += 1
-
+hashtag = "".join(hashtag_arr)
