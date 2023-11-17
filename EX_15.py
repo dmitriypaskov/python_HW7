@@ -5,19 +5,25 @@
 Слово "день" підбирається на основі кількох днів, а години,
 хвилини і секунди повинні заповнюватися нулями при одноцифрових значеннях. """
 ttime = int(input("Please enter the number of seconds :\n"))
-day = ttime // (24 * 60 * 60)
-if day > 14:
-    day = int(str(day)[-1])
-hours = (ttime % (24 * 60 * 60)) // (60 * 60)
-if len(str(hours)) == 1:
-    hours = "0" + str(hours)
-minutes = (ttime % (24 * 60 * 60)) % (60 * 60) // 60
-if len(str(minutes)) == 1:
-    minutes = "0" + str(minutes)
-seconds = (ttime % (24 * 60 * 60)) % (60 * 60) % 60
-if len(str(seconds)) == 1:
-    seconds = "0" + str(seconds)
-days = {0: "днів", 1: "день", 2: "дні", 3: "дні", 4: "дні", 5: "днів", 6: "днів", 7: "днів",
-        8: "днів", 9: "днів", 10: "днів", 11: "днів", 12: "днів", 13: "днів", 14: "днів",}
-print(f"{day} {days.get(day)}, {hours}:{minutes}:{seconds}")
+if 0 <= ttime < 8640000:
+    day = ttime // (24 * 60 * 60)
+    if day > 19:
+        day = int(str(day)[-2:-1])
+        print(day)
+    hours = (ttime % (24 * 60 * 60)) // (60 * 60)
+    if len(str(hours)) == 1:
+        hours = "0" + str(hours)
+    minutes = (ttime % (24 * 60 * 60)) % (60 * 60) // 60
+    if len(str(minutes)) == 1:
+        minutes = "0" + str(minutes)
+    seconds = (ttime % (24 * 60 * 60)) % (60 * 60) % 60
+    if len(str(seconds)) == 1:
+        seconds = "0" + str(seconds)
+    days = {0: "днів", 1: "день", 2: "дні", 3: "дні", 4: "дні",
+            5: "днів", 6: "днів", 7: "днів", 8: "днів", 9: "днів",
+            10: "днів", 11: "днів", 12: "днів", 13: "днів", 14: "днів",
+            15: "днів", 16: "днів", 17: "днів", 18: "днів", 19: "днів"}
+    print(f"{day} {days.get(day)}, {hours}:{minutes}:{seconds}")
+else:
+    print("Error I cant")
 
