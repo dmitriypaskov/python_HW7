@@ -17,9 +17,8 @@ ttime = int(input("Please enter the number of seconds :\n"))
 if 0 <= ttime < 8640000:
     day = ttime // (24 * 60 * 60)
     key_day = day
-    if int(str(key_day)[-2:]) > 19:
+    if day > 19:
         key_day = int(str(key_day)[-1])
-        print(type(int(str(key_day)[-2:])))
     hours = (ttime % (24 * 60 * 60)) // (60 * 60)
     if len(str(hours)) == 1:
         hours = "0" + str(hours)
