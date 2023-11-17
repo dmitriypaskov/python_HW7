@@ -9,22 +9,19 @@ import keyword
     -бути жодним із зареєстрованих слів."""
 value = input("Please enter the name of the variable to check :\n")
 result = True
-if not value.islower() and value != "_":
+if value != "_" and not value.islower():
     result = False
-elif value[0].isnumeric() or value.isnumeric():
+elif value[0].isnumeric():
     result = False
 elif value in keyword.kwlist:
     result = False
 else:
-    for i, el in enumerate(value):
-        if el == " ":
-            result = False
-            break
-        elif len(value) > 1 and value[-i] == "_" and value[-i-1] == "_":
-            result = False
-            break
-        elif el == "_":
+    for el in value:
+        if el == "_":
             continue
+        elif el == " ":
+            result = False
+            break
         elif el in string.punctuation:
             result = False
             break
