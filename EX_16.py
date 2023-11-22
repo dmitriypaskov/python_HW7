@@ -4,8 +4,7 @@
 
 
 def say_hi(name, age):
-    ave = f"Hi. My name is {name} and I'm {age} years old"
-    return ave
+    return f"Hi. My name is {name} and I'm {age} years old"
 
 
 assert say_hi("Alex", 32) == "Hi. My name is Alex and I'm 32 years old"

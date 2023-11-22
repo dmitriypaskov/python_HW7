@@ -9,15 +9,17 @@
 
 
 def correct_sentence(text):
-    if text[0].isalpha().islower() and text[-1] != ".":
-        return text[0].upper() + "."
-    elif text[0].isalpha().isupper() and text[-1] != ".":
-        return text[:-2] + "."
-    elif text[0].isalpha().islower() and text[-1] == ".":
-        return text[0].upper() + text[1:]
+    if text[0].islower() and text[-1] != ".":
+        return "{}{}{}".format(text[0].upper(), text[1:], ".")
+    elif text[0].isupper() and text[-1] != ".":
+        return "{}{}".format(text, ".")
+    elif text[0].islower() and text[-1] == ".":
+        return "{}{}".format(text[0].upper(), text[1:])
     else:
         return text
 
+
+print(correct_sentence("Greetings. Friends"))
 
 assert correct_sentence("greetings, friends") == "Greetings, friends.", 'Test1'
 assert correct_sentence("hello") == "Hello.", 'Test2'
