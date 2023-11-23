@@ -8,10 +8,7 @@ import string
 
 def is_palindrome(text):
     letters = "".join(i.lower() for i in text if i not in string.punctuation and not i.isspace())
-    if len(letters) == 1 or letters[:math.floor(len(letters) / 2)] == letters[math.ceil(len(letters) / 2):][::-1]:
-        return True
-    else:
-        return False
+    return True if letters == letters[::-1] else False
 
 
 assert is_palindrome('A man, a plan, a canal: Panama') == True, 'Test1'
