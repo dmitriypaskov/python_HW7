@@ -2,10 +2,16 @@
 Паліндромом - це такий рядок, який читається однаково зліва направо і зправа наліво без
 урахування знаків пунктуації та регістру букв.
 Функція приймає на вхід рядок, та повертає булеве значення True або False"""
+import math
+import string
 
 
 def is_palindrome(text):
-    pass
+    letters = "".join(i.lower() for i in text if i not in string.punctuation and not i.isspace())
+    if len(letters) == 1 or letters[:math.floor(len(letters) / 2)] == letters[math.ceil(len(letters) / 2):][::-1]:
+        return True
+    else:
+        return False
 
 
 assert is_palindrome('A man, a plan, a canal: Panama') == True, 'Test1'
