@@ -3,7 +3,8 @@
 # Випадок, коли в одному списку буде кілька унікальних чисел, перевіряти не потрібно.
 def find_unique_value(some_list):
     for i in some_list:
-        if i.count() == 1:
+        if some_list.count(i) == 1:
+            print(i)
             return i
 
 
