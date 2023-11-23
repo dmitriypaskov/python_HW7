@@ -2,10 +2,11 @@
 # них унікальне число та повертати його. Унікальне число - це число, яке зустрічається в списку один раз.
 # Випадок, коли в одному списку буде кілька унікальних чисел, перевіряти не потрібно.
 def find_unique_value(some_list):
-    for i in some_list:
-        if some_list.count(i) == 1:
-            print(i)
-            return i
+    arr = some_list.copy()
+    for i in set(some_list):
+        arr.remove(i)
+    unique = set(some_list).difference(set(arr))
+    return unique.pop()
 
 
 assert find_unique_value([1, 2, 1, 1]) == 2, 'Test1'
