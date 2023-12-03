@@ -16,11 +16,6 @@ def some_gen(begin, end, func):
         i += 1
         yield begin
         begin = func(begin)
-    """
-     begin: перший елемент послідовності
-     end: кількість елементів у послідовності
-     func: функція, яка формує значення для послідовності
-    """
 
 
 from inspect import isgenerator
