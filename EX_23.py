@@ -11,8 +11,11 @@ def pow(x):
 
 
 def some_gen(begin, end, func):
-    for i in range(end):
-        yield func(begin*(i+1))
+    i = 0
+    while i < end:
+        i += 1
+        yield begin
+        begin = func(begin)
     """
      begin: перший елемент послідовності
      end: кількість елементів у послідовності
