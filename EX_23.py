@@ -11,9 +11,7 @@ def pow(x):
 
 
 def some_gen(begin, end, func):
-    i = 0
-    while i < end:
-        i += 1
+    for i in range(end):
         yield begin
         begin = func(begin)
 
