@@ -8,7 +8,8 @@
 
 
 def is_even(number: int):
-    if number % 10 == 1 or number % 10 == 3 or number % 10 == 5 or number % 10 == 7 or number % 10 == 9:
+    last = str(number)[-1]
+    if int(last) == 1 or int(last) == 3 or int(last) == 5 or int(last) == 7 or int(last) == 9:
         return False
     else:
         return True
