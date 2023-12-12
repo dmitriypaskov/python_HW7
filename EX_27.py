@@ -41,7 +41,7 @@ class Purchase:
         self.products[item] = cnt
 
     def __str__(self):
-        res = f"User: {self.user.name} {self.user.surname}\nItems:\n"
+        res = f"User: {self.user}\nItems:\n"
         for item, cnt in self.products.items():
             res += f"{item.name}: {cnt} pcs.\n"
         return res
