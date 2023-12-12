@@ -8,8 +8,7 @@
 
 
 def is_even(number: int):
-    number &= 0b1
-    return number == 0
+    return not (number & 1)
 
 
 assert is_even(2494563894038 ** 2) == True, 'Test1'

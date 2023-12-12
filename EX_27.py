@@ -7,31 +7,32 @@
 до користувача, який його здійснив. Реалізуйте метод обчислення сумарної вартості замовлення.
 Визначте метод __str__() для коректного виведення інформації про це замовлення."""
 
+
 class Item:
 
-    def __init__(self, name, price, description, dimensions):
+    def __init__(self, name: str, price: int, description: str, dimensions: str):
         self.price = price
         self.description = description
         self.dimensions = dimensions
         self.name = name
 
     def __str__(self):
-        pass
+        return f"{self.name}, price: {self.price}"
 
 
 class User:
 
-    def __init__(self, name, surname, numberphone):
+    def __init__(self, name: str, surname: str, numberphone: str):
         self.name = name
         self.surname = surname
         self.numberphone = numberphone
 
     def __str__(self):
-        pass
+        return f"{self.name} {self.surname}"
 
 
 class Purchase:
-    def __init__(self, user):
+    def __init__(self, user: User):
         self.products = {}
         self.user = user
         self.total = 0
@@ -40,11 +41,29 @@ class Purchase:
         self.products[item] = cnt
 
     def __str__(self):
-        pass
+        res = f"User: {self.user.name} {self.user.surname}\nItems:\n"
+        for item, cnt in self.products.items():
+            res += f"{item.name}: {cnt} pcs.\n"
+        return res
 
     def get_total(self):
-        pass
+        self.total = 0
+        for items, cnt in self.products.items():
+            self.total += cnt * items.price
+        return self.total
 
+
+kaban = Item('kaban', 10000, 'green', 'gigantic')
+print(kaban)
+mayonez = Item("mayonez", 20, "white", "small")
+print(mayonez)
+dmytro = User('Dmytro', "Pashkov", "0955520295")
+print(dmytro)
+holiday = Purchase(dmytro)
+holiday.add_item(kaban, 5)
+holiday.add_item(mayonez, 100)
+print(holiday.get_total())
+print(holiday.get_total())
 
 lemon = Item('lemon', 5, "yellow", "small", )
 apple = Item('apple', 2, "red", "middle", )
@@ -74,5 +93,5 @@ Items:
 lemon: 4 pcs.
 apple: 10 pcs.
 """
-
 assert cart.get_total() == 40
+print("Ok")
