@@ -18,13 +18,13 @@ class Counter:
         self.min_value = min_value
         self.max_value = max_value
 
-    def set_current(self, start):
+    def set_current(self, start: int):
         self.current = start
 
-    def set_max(self, max_max):
+    def set_max(self, max_max: int):
         self.max_value = max_max
 
-    def set_min(self, min_min):
+    def set_min(self, min_min: int):
         self.min_value = min_min
 
     def step_up(self):
@@ -58,7 +58,7 @@ assert counter.get_current() == 10, 'Test1'
 try:
     counter.step_up()  # ValueError
 except ValueError as e:
-    print(e)  # Достигнут максимум
+    print(e)  # Досягнено максимуму!
 assert counter.get_current() == 10, 'Test2'
 
 counter.set_min(7)
@@ -69,6 +69,6 @@ assert counter.get_current() == 7, 'Test3'
 try:
     counter.step_down()  # ValueError
 except ValueError as e:
-    print(e)  # Достигнут минимум
+    print(e)  # Досягнено мінімуму!
 assert counter.get_current() == 7, 'Test4'
 print("Ok")

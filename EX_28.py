@@ -7,22 +7,25 @@
 Визначте для групи метод __str__() для повернення списку студентів у вигляді рядка.
 Нижче наведені заготовки, які необхідно доповнити."""
 
+from abc import ABC, abstractmethod
 
-class Human:
 
-    def __init__(self, gender, age, first_name, last_name):
+class Human(ABC):
+
+    def __init__(self, gender: str, age: str, first_name: str, last_name: str):
         self.gender = gender
         self.age = age
         self.first_name = first_name
         self.last_name = last_name
 
+    @abstractmethod
     def __str__(self):
         return f"gender: {self.gender}\nage: {self.age}\nfirst_name: {self.first_name}\nlast_name: {self.last_name}\n"
 
 
 class Student(Human):
 
-    def __init__(self, gender, age, first_name, last_name, record_book):
+    def __init__(self, gender: str, age: str, first_name: str, last_name: str, record_book: str):
         super().__init__(gender, age, first_name, last_name)
         self.record_book = record_book
 
@@ -32,18 +35,18 @@ class Student(Human):
 
 class Group:
 
-    def __init__(self, number):
+    def __init__(self, number: str):
         self.number = number
         self.group = set()
 
-    def add_student(self, student):
+    def add_student(self, student: Student):
         self.group.add(student)
 
-    def delete_student(self, last_name):
+    def delete_student(self, last_name: str):
         if self.find_student(last_name) in self.group:
             self.group.remove(self.find_student(last_name))
 
-    def find_student(self, last_name):
+    def find_student(self, last_name: str):
         for student in self.group:
             if student.last_name == last_name:
                 return student
