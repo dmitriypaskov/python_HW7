@@ -31,7 +31,6 @@ class Counter:
         try:
             if self.current < self.max_value:
                 self.current += 1
-                print(self.current)
             else:
                 raise ValueError
         except ValueError:
@@ -41,7 +40,6 @@ class Counter:
         try:
             if self.current > self.min_value:
                 self.current -= 1
-                print(self.current)
             else:
                 raise ValueError
         except ValueError:
