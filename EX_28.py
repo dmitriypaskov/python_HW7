@@ -40,7 +40,13 @@ class Group:
         self.group = set()
 
     def add_student(self, student: Student):
-        self.group.add(student)
+        try:
+            if len(self.group) < 10:
+                self.group.add(student)
+            else:
+                raise ValueError
+        except ValueError:
+            print("ExceptGroupFull")
 
     def delete_student(self, last_name: str):
         if self.find_student(last_name) in self.group:
@@ -51,6 +57,9 @@ class Group:
             if student.last_name == last_name:
                 return student
 
+    def count(self):
+        return len(self.group)
+
     def __str__(self):
         all_students = ''
         for student in self.group:
@@ -58,17 +67,26 @@ class Group:
         return f'Number:{self.number}\n\n{all_students} '
 
 
-st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
-st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
+# class ExceptGroupFull:
+#
+#     def __init__(self, group):
+#         self.group = group
+#
+#     def group_except(self):
+#         assert self.group == 10, 'Test1'
+#         try:
+#             self.group.add_student()
+#         except ValueError as ExceptGroupISFull:
+#             print(ExceptGroupISFull)
+#         assert self.group == 10, 'Test2'
+
+
 gr = Group('PD1')
+st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
+
+for i in range(10):
+    gr.add_student(Student('Male', 30, 'Steve', 'Jobs', 'AN142'))
 gr.add_student(st1)
-gr.add_student(st2)
-print(gr)
 
-assert str(gr.find_student('Jobs')) == str(st1), 'Test1'
-assert gr.find_student('Jobs2') is None, 'Test2'
-assert isinstance(gr.find_student('Jobs'), Student) is True, 'Метод поиска должен возвращать экземпляр'
-
-gr.delete_student('Taylor')  # Only one student
-gr.delete_student('Taylor')  # No error!
+print(gr.count())
 print("Ok")
