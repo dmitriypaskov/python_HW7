@@ -40,13 +40,10 @@ class Group:
         self.group = set()
 
     def add_student(self, student: Student):
-        try:
-            if len(self.group) < 10:
-                self.group.add(student)
-            else:
-                raise ValueError
-        except ValueError:
-            print("ExceptGroupFull")
+        if len(self.group) < 10:
+            self.group.add(student)
+        else:
+            raise TooManyStudentsError()
 
     def delete_student(self, last_name: str):
         if self.find_student(last_name) in self.group:
@@ -67,26 +64,23 @@ class Group:
         return f'Number:{self.number}\n\n{all_students} '
 
 
-# class ExceptGroupFull:
-#
-#     def __init__(self, group):
-#         self.group = group
-#
-#     def group_except(self):
-#         assert self.group == 10, 'Test1'
-#         try:
-#             self.group.add_student()
-#         except ValueError as ExceptGroupISFull:
-#             print(ExceptGroupISFull)
-#         assert self.group == 10, 'Test2'
+class TooManyStudentsError(Exception):
+
+    def __str__(self):
+        return "TooManyStudentsError"
 
 
 gr = Group('PD1')
 st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
+st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
 
-for i in range(10):
-    gr.add_student(Student('Male', 30, 'Steve', 'Jobs', 'AN142'))
-gr.add_student(st1)
+
+for i in range(11):
+    try:
+        gr.add_student(Student('Male', 30, 'Steve', 'Jobs', 'AN142'))
+    except TooManyStudentsError():
+        print(TooManyStudentsError())
+
 
 print(gr.count())
 print("Ok")
