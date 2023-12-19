@@ -72,15 +72,12 @@ class TooManyStudentsError(Exception):
 
 gr = Group('PD1')
 st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
-st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
-
 
 for i in range(11):
     try:
         gr.add_student(Student('Male', 30, 'Steve', 'Jobs', 'AN142'))
-    except TooManyStudentsError():
-        print(TooManyStudentsError())
-
+    except TooManyStudentsError as e:
+        print(e)
 
 print(gr.count())
 print("Ok")
