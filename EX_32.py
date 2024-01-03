@@ -34,8 +34,11 @@ class Fraction:
 
 
 f_a = Fraction(2, 3)
+print(f_a)
 f_b = Fraction(3, 6)
+print(f_b)
 f_c = f_b + f_a
+print(f_c)
 assert str(f_c) == 'Fraction: 21, 18'
 f_d = f_b * f_a
 assert str(f_d) == 'Fraction: 6, 18'
